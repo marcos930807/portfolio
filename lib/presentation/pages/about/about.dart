@@ -1,8 +1,9 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:web_portfolio/presentation/components/responsive_builder.dart';
 import 'package:web_portfolio/presentation/pages/about/skills.dart';
-import 'dart:html' as html;
+// import 'dart:html' as html;
 import 'package:web_portfolio/utils/assets.dart';
 import 'package:web_portfolio/utils/constant.dart';
 import 'package:websafe_svg/websafe_svg.dart';
@@ -57,7 +58,7 @@ class AboutTab extends StatelessWidget {
 
 class ProfileAndSocials extends StatelessWidget {
   const ProfileAndSocials({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -110,31 +111,20 @@ class ProfileAndSocials extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               FlatButton.icon(
-                icon: SizedBox(
-                    width: 20,
-                    height: 20,
-                    child: WebsafeSvg.asset(Assets.github)),
-                label: Text('Github'),
-                onPressed: () =>
-                    html.window.open(Constants.PROFILE_GITHUB, 'marcos930807'),
-              ),
+                  icon: SizedBox(width: 20, height: 20, child: WebsafeSvg.asset(Assets.github)),
+                  label: Text('Github'),
+                  onPressed: () => launch(Constants.PROFILE_GITHUB)),
               FlatButton.icon(
-                icon: SizedBox(
-                    width: 20,
-                    height: 20,
-                    child: WebsafeSvg.asset(Assets.twitter)),
+                icon: SizedBox(width: 20, height: 20, child: WebsafeSvg.asset(Assets.twitter)),
                 label: Text('Twitter'),
-                onPressed: () =>
-                    html.window.open(Constants.PROFILE_TWITTER, 'marcos930807'),
+                onPressed: () => launch(Constants.PROFILE_TWITTER),
               ),
               FlatButton.icon(
-                icon: SizedBox(
-                    width: 20,
-                    height: 20,
-                    child: WebsafeSvg.asset(Assets.linkedin)),
+                icon: SizedBox(width: 20, height: 20, child: WebsafeSvg.asset(Assets.linkedin)),
                 label: Text('Linkedin'),
-                onPressed: () => html.window
-                    .open(Constants.PROFILE_LINKEDIN, 'marcos930807'),
+                onPressed: () => launch(
+                  Constants.PROFILE_LINKEDIN,
+                ),
               ),
             ],
           ),
@@ -147,22 +137,14 @@ class ProfileAndSocials extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               FlatButton.icon(
-                icon: SizedBox(
-                    width: 20,
-                    height: 20,
-                    child: WebsafeSvg.asset(Assets.facebook)),
+                icon: SizedBox(width: 20, height: 20, child: WebsafeSvg.asset(Assets.facebook)),
                 label: Text('Facebook'),
-                onPressed: () => html.window
-                    .open(Constants.PROFILE_FACEBOOK, 'marcos930807'),
+                onPressed: () => launch(Constants.PROFILE_FACEBOOK),
               ),
               FlatButton.icon(
-                icon: SizedBox(
-                    width: 20,
-                    height: 20,
-                    child: WebsafeSvg.asset(Assets.instagram)),
+                icon: SizedBox(width: 20, height: 20, child: WebsafeSvg.asset(Assets.instagram)),
                 label: Text('Instagram'),
-                onPressed: () => html.window
-                    .open(Constants.PROFILE_INSTAGRAM, 'marcos930807'),
+                onPressed: () => launch(Constants.PROFILE_INSTAGRAM),
               ),
             ],
           ),

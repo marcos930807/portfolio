@@ -1,4 +1,4 @@
-import 'dart:html';
+// import 'dart:html';
 
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
@@ -9,11 +9,13 @@ const skills = [
   'Dominio de la Clean Arquitecture y los principios de SOLID, usando código segmentado por capas con responsabilidades únicas.'
       'Dominio de arquitecturas como MVVM y MVP,BLOC, así como inyección de dependencias y trabajo con abstracciones.',
   'Utilización de software de control de versiones,ejemplo: Git utilizando gitflow.',
-  'Desarrollo móvil Nativo para Android y usando frameworks como Flutter para desarrollo multiplataforma.'
+  'Desarrollo móvil Nativo para Android y usando frameworks como Flutter para desarrollo multiplataforma.',
+  'CI/CD for flutter apps on both Android and Ios platform.',
+  'Unit Test',
 ];
 
 class Skills extends StatefulWidget {
-  const Skills({Key key}) : super(key: key);
+  const Skills({Key? key}) : super(key: key);
 
   @override
   _SkillsState createState() => _SkillsState();

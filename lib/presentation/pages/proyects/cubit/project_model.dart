@@ -1,12 +1,13 @@
 import 'dart:convert';
 
+import 'package:auto_route/auto_route.dart';
 import 'package:equatable/equatable.dart';
 
 class Project extends Equatable {
-  final String name;
-  final String description;
-  final String asset;
-  final String route;
+  final String? name;
+  final String? description;
+  final String? asset;
+  final PageRouteInfo? route;
   Project({
     this.name,
     this.description,
@@ -15,16 +16,16 @@ class Project extends Equatable {
   });
 
   Project copyWith({
-    String name,
-    String description,
-    String asset,
-    String route,
+    String? name,
+    String? description,
+    String? asset,
+    String? route,
   }) {
     return Project(
       name: name ?? this.name,
       description: description ?? this.description,
       asset: asset ?? this.asset,
-      route: route ?? this.route,
+      route: route as PageRouteInfo<dynamic>? ?? this.route,
     );
   }
 
@@ -37,8 +38,8 @@ class Project extends Equatable {
     };
   }
 
-  factory Project.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
+  factory Project.fromMap(Map<String, dynamic>? map) {
+    if (map == null) return Project();
 
     return Project(
       name: map['name'],
@@ -50,12 +51,11 @@ class Project extends Equatable {
 
   String toJson() => json.encode(toMap());
 
-  factory Project.fromJson(String source) =>
-      Project.fromMap(json.decode(source));
+  factory Project.fromJson(String source) => Project.fromMap(json.decode(source));
 
   @override
   bool get stringify => true;
 
   @override
-  List<Object> get props => [name, description, asset, route];
+  List<Object?> get props => [name, description, asset, route];
 }

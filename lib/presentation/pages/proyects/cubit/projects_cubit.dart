@@ -12,26 +12,29 @@ class ProjectsCubit extends Cubit<ProjectsState> {
   fetchProyect() {
     final projects = [
       Project(
-          name: 'Awesome Dialog',
-          description:
-              'A Flutter package project for simple a awesome dialogs..',
-          asset: Assets.github,
-          route: Routes.awesomeDialogPage),
+        name: 'Awesome Dialog',
+        description: 'A Flutter package project for simple a awesome dialogs..',
+        asset: Assets.github,
+        route: AwesomeDialogPageRoute(),
+      ),
       Project(
-          name: 'Gosocket Inbox',
-          description: 'CrossPlatform flutter mobile App',
-          asset: Assets.github,
-          route: Routes.underDev),
+        name: 'Gosocket Inbox',
+        description: 'CrossPlatform flutter mobile App',
+        asset: Assets.github,
+        route: UnderDevRoute(),
+      ),
       Project(
-          name: 'PosMitt',
-          description: 'CrossPlatform flutter mobile App',
-          asset: Assets.github,
-          route: Routes.underDev),
+        name: 'PosMitt',
+        description: 'CrossPlatform flutter mobile App',
+        asset: Assets.github,
+        route: UnderDevRoute(),
+      ),
       Project(
-          name: 'Smart Inv',
-          description: 'CrossPlatform flutter mobile App',
-          asset: Assets.github,
-          route: Routes.underDev),
+        name: 'Smart Inv',
+        description: 'CrossPlatform flutter mobile App',
+        asset: Assets.github,
+        route: UnderDevRoute(),
+      ),
     ];
 
     emit(state.copyWith(projects: projects));

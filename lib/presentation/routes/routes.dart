@@ -1,4 +1,4 @@
-import 'package:auto_route/auto_route_annotations.dart';
+import 'package:auto_route/annotations.dart';
 import 'package:web_portfolio/presentation/pages/awesome_dialog/awesome_dialog.dart';
 import 'package:web_portfolio/presentation/pages/home/home.dart';
 import 'package:web_portfolio/presentation/pages/proyects/under_dev.dart';
@@ -12,4 +12,4 @@ import 'package:web_portfolio/presentation/pages/proyects/under_dev.dart';
     AutoRoute(page: UnderDev),
   ],
 )
-class $Router {}
+class $AppRouter {}

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class ShadowCard extends StatelessWidget {
   const ShadowCard({
-    Key key,
+    Key? key,
     this.child,
     this.backGroundColor,
     this.gradient,
@@ -12,14 +12,14 @@ class ShadowCard extends StatelessWidget {
     this.width,
     this.margin,
   }) : super(key: key);
-  final Widget child;
-  final Color backGroundColor;
-  final LinearGradient gradient;
-  final Border border;
-  final BorderRadius borderRadius;
-  final double height;
-  final double width;
-  final EdgeInsetsGeometry margin;
+  final Widget? child;
+  final Color? backGroundColor;
+  final LinearGradient? gradient;
+  final Border? border;
+  final BorderRadius? borderRadius;
+  final double? height;
+  final double? width;
+  final EdgeInsetsGeometry? margin;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -47,12 +47,12 @@ class ShadowCard extends StatelessWidget {
   }
 
   factory ShadowCard.bordered({
-    @required final BuildContext context,
-    @required final Widget child,
-    final EdgeInsetsGeometry margin,
-    final double height,
-    final double width,
-    final BorderRadius borderRadius,
+    required final BuildContext context,
+    required final Widget child,
+    final EdgeInsetsGeometry? margin,
+    final double? height,
+    final double? width,
+    final BorderRadius? borderRadius,
   }) {
     return ShadowCard(
       margin: margin,

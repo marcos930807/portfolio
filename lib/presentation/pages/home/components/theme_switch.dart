@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:web_portfolio/presentation/app/app_cubit.dart';
 
 class ThemeSwitch extends StatelessWidget {
-  const ThemeSwitch({Key key}) : super(key: key);
+  const ThemeSwitch({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class ThemeSwitch extends StatelessWidget {
           ? EvaIcons.moonOutline
           : EvaIcons.sunOutline),
       onPressed: () {
-        context.bloc<AppCubit>().toggleTheme();
+        context.read<AppCubit>().toggleTheme();
       },
     );
   }

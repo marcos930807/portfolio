@@ -6,7 +6,7 @@ import 'cubit/projects_cubit.dart';
 import 'project_tile.dart';
 
 class Projects extends StatelessWidget {
-  const Projects({Key key}) : super(key: key);
+  const Projects({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

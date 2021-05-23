@@ -8,7 +8,7 @@ class ProjectsState extends Equatable {
   List<Object> get props => [projects];
 
   ProjectsState copyWith({
-    final List<Project> projects,
+    final List<Project>? projects,
   }) {
     return ProjectsState(
       projects ?? this.projects,

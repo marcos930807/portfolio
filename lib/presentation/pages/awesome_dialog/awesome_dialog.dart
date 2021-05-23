@@ -4,13 +4,14 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:web_portfolio/presentation/components/responsive_builder.dart';
 import 'package:web_portfolio/presentation/components/shadow_card.dart';
+// import 'package:web_portfolio/presentation/routes/routes.gr.dart';
 import 'package:web_portfolio/utils/assets.dart';
 import 'package:web_portfolio/utils/constant.dart';
 import 'package:websafe_svg/websafe_svg.dart';
-import 'dart:html' as html;
+// import 'dart:html' as html;
 
 class AwesomeDialogPage extends StatelessWidget {
-  const AwesomeDialogPage({Key key}) : super(key: key);
+  const AwesomeDialogPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -237,7 +238,8 @@ class AwesomeDialogPage extends StatelessWidget {
         leading: IconButton(
             icon: Icon(EvaIcons.arrowBackOutline),
             onPressed: () {
-              ExtendedNavigator.of(context).pop();
+              context.router.pop();
+              //AutoRouter.of(context).pop();
             }),
         title: Text(
           'Awesome Dialog Package',
@@ -249,8 +251,7 @@ class AwesomeDialogPage extends StatelessWidget {
               icon: WebsafeSvg.asset(Assets.github),
               tooltip: 'Open Github Repo',
               onPressed: () {
-                html.window
-                    .open(Constants.AWESOME_DIALOG_GITHUB, 'Awesome Dialog');
+                // html.window.open(Constants.AWESOME_DIALOG_GITHUB, 'Awesome Dialog');
               })
         ],
       ),
@@ -261,15 +262,15 @@ class AwesomeDialogPage extends StatelessWidget {
               largeScreen: GridView.count(
                 padding: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 32.0),
                 crossAxisCount: 3,
-                childAspectRatio: MediaQuery.of(context).size.width /
-                    (MediaQuery.of(context).size.height / 1.6),
+                childAspectRatio:
+                    MediaQuery.of(context).size.width / (MediaQuery.of(context).size.height / 1.6),
                 children: List.generate(cards.length, (index) => cards[index]),
               ),
               mediumScreen: GridView.count(
                 padding: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 32.0),
                 crossAxisCount: 2,
-                childAspectRatio: MediaQuery.of(context).size.width /
-                    (MediaQuery.of(context).size.height / 1.6),
+                childAspectRatio:
+                    MediaQuery.of(context).size.width / (MediaQuery.of(context).size.height / 1.6),
                 children: List.generate(cards.length, (index) => cards[index]),
               ),
               smallScreen: ListView.builder(
@@ -286,18 +287,18 @@ class AwesomeDialogPage extends StatelessWidget {
 
 class DialogCardInfo extends StatelessWidget {
   const DialogCardInfo({
-    Key key,
+    Key? key,
     this.dialog,
     this.primaryDesc,
   }) : super(key: key);
-  final Widget primaryDesc;
-  final AwesomeDialog dialog;
+  final Widget? primaryDesc;
+  final AwesomeDialog? dialog;
   @override
   Widget build(BuildContext context) {
     return ShadowCard(
         margin: const EdgeInsets.all(8),
         child: InkWell(
-          onTap: () => dialog..show(),
+          onTap: () => dialog?..show(),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
@@ -306,11 +307,10 @@ class DialogCardInfo extends StatelessWidget {
                 Container(
                   height: 80,
                   width: 80,
-                  child: dialog.customHeader ??
-                      (dialog.dialogType != DialogType.NO_HEADER
+                  child: dialog!.customHeader ??
+                      (dialog!.dialogType != DialogType.NO_HEADER
                           ? FlareHeader(
-                              dialogType: dialog.dialogType,
-                              loop: dialog.headerAnimationLoop)
+                              dialogType: dialog!.dialogType, loop: dialog!.headerAnimationLoop)
                           : Container()),
                 ),
                 SizedBox(
@@ -318,20 +318,20 @@ class DialogCardInfo extends StatelessWidget {
                 ),
                 Expanded(
                     child: primaryDesc ??
-                        dialog.body ??
+                        dialog!.body ??
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Text(
-                              dialog.title,
+                              dialog!.title!,
                               style: Theme.of(context).textTheme.subtitle1,
                             ),
                             SizedBox(
                               height: 10,
                             ),
                             Text(
-                              dialog.desc,
+                              dialog!.desc!,
                               style: Theme.of(context).textTheme.caption,
                             ),
                           ],

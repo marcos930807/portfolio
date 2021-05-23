@@ -12,7 +12,7 @@ class AppCubit extends Cubit<AppState> {
       : super(AppState.initial(_preferencesManager));
 
   void toggleTheme() {
-    if (state.themeData.brightness == Brightness.light) {
+    if (state.themeData!.brightness == Brightness.light) {
       _preferencesManager.setTheme(AppTheme.Dark);
       emit(state.copyWith(themeData: appThemeData[AppTheme.Dark]));
     } else {

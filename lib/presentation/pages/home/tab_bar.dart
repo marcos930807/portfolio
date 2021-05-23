@@ -5,15 +5,16 @@ import 'package:web_portfolio/presentation/components/cupertino_tabbar.dart';
 import 'cubit/bottombar_cubit.dart';
 
 class HomeTabBar extends StatelessWidget {
-  HomeTabBar({Key key}) : super(key: key);
+  HomeTabBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<BottomBarCubit, int>(
       builder: (context, state) {
-        var customStyle = Theme.of(context).textTheme.caption.copyWith(
-            fontWeight: FontWeight.bold,
-            color: Theme.of(context).iconTheme.color);
+        var customStyle = Theme.of(context)
+            .textTheme
+            .caption!
+            .copyWith(fontWeight: FontWeight.bold, color: Theme.of(context).iconTheme.color);
         return Container(
           padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 8.0),
           width: 400,
@@ -40,7 +41,7 @@ class HomeTabBar extends StatelessWidget {
             ],
             () => state,
             (int index) {
-              context.bloc<BottomBarCubit>().updateIndex(index);
+              context.read<BottomBarCubit>().updateIndex(index);
             },
             useSeparators: true,
             expand: true,

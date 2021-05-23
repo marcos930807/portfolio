@@ -4,67 +4,68 @@
 // AutoRouteGenerator
 // **************************************************************************
 
-// ignore_for_file: public_member_api_docs
+import 'package:auto_route/auto_route.dart' as _i1;
+import 'package:flutter/material.dart' as _i2;
 
-import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
+import '../pages/awesome_dialog/awesome_dialog.dart' as _i4;
+import '../pages/home/home.dart' as _i3;
+import '../pages/proyects/under_dev.dart' as _i5;
 
-import '../pages/awesome_dialog/awesome_dialog.dart';
-import '../pages/home/home.dart';
-import '../pages/proyects/under_dev.dart';
+class AppRouter extends _i1.RootStackRouter {
+  AppRouter([_i2.GlobalKey<_i2.NavigatorState>? navigatorKey])
+      : super(navigatorKey);
 
-class Routes {
-  static const String myHomePage = '/';
-  static const String awesomeDialogPage = '/awesome-dialog-page';
-  static const String underDev = '/under-dev';
-  static const all = <String>{
-    myHomePage,
-    awesomeDialogPage,
-    underDev,
+  @override
+  final Map<String, _i1.PageFactory> pagesMap = {
+    MyHomePageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (data) {
+          final args = data.argsAs<MyHomePageRouteArgs>(
+              orElse: () => const MyHomePageRouteArgs());
+          return _i3.MyHomePage(key: args.key);
+        }),
+    AwesomeDialogPageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return const _i4.AwesomeDialogPage();
+        }),
+    UnderDevRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return const _i5.UnderDev();
+        })
   };
+
+  @override
+  List<_i1.RouteConfig> get routes => [
+        _i1.RouteConfig(MyHomePageRoute.name, path: '/'),
+        _i1.RouteConfig(AwesomeDialogPageRoute.name,
+            path: '/awesome-dialog-page'),
+        _i1.RouteConfig(UnderDevRoute.name, path: '/under-dev')
+      ];
 }
 
-class Router extends RouterBase {
-  @override
-  List<RouteDef> get routes => _routes;
-  final _routes = <RouteDef>[
-    RouteDef(Routes.myHomePage, page: MyHomePage),
-    RouteDef(Routes.awesomeDialogPage, page: AwesomeDialogPage),
-    RouteDef(Routes.underDev, page: UnderDev),
-  ];
-  @override
-  Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
-  final _pagesMap = <Type, AutoRouteFactory>{
-    MyHomePage: (data) {
-      final args = data.getArgs<MyHomePageArguments>(
-        orElse: () => MyHomePageArguments(),
-      );
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => MyHomePage(key: args.key),
-        settings: data,
-      );
-    },
-    AwesomeDialogPage: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => const AwesomeDialogPage(),
-        settings: data,
-      );
-    },
-    UnderDev: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => const UnderDev(),
-        settings: data,
-      );
-    },
-  };
+class MyHomePageRoute extends _i1.PageRouteInfo<MyHomePageRouteArgs> {
+  MyHomePageRoute({_i2.Key? key})
+      : super(name, path: '/', args: MyHomePageRouteArgs(key: key));
+
+  static const String name = 'MyHomePageRoute';
 }
 
-/// ************************************************************************
-/// Arguments holder classes
-/// *************************************************************************
+class MyHomePageRouteArgs {
+  const MyHomePageRouteArgs({this.key});
 
-/// MyHomePage arguments holder class
-class MyHomePageArguments {
-  final Key key;
-  MyHomePageArguments({this.key});
+  final _i2.Key? key;
+}
+
+class AwesomeDialogPageRoute extends _i1.PageRouteInfo {
+  const AwesomeDialogPageRoute() : super(name, path: '/awesome-dialog-page');
+
+  static const String name = 'AwesomeDialogPageRoute';
+}
+
+class UnderDevRoute extends _i1.PageRouteInfo {
+  const UnderDevRoute() : super(name, path: '/under-dev');
+
+  static const String name = 'UnderDevRoute';
 }

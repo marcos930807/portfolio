@@ -6,8 +6,7 @@ import 'package:websafe_svg/websafe_svg.dart';
 import 'cubit/project_model.dart';
 
 class ProjectTile extends StatelessWidget {
-  const ProjectTile({Key key, @required this.project, @required this.index})
-      : super(key: key);
+  const ProjectTile({Key? key, required this.project, required this.index}) : super(key: key);
   final Project project;
   final int index;
   @override
@@ -17,14 +16,14 @@ class ProjectTile extends StatelessWidget {
       child: ShadowCard(
         margin: const EdgeInsets.all(8),
         child: ListTile(
-          leading: WebsafeSvg.asset(project.asset, height: 50, width: 50),
-          title: Text(project.name),
+          leading: WebsafeSvg.asset(project.asset!, height: 50, width: 50),
+          title: Text(project.name!),
           subtitle: Text(
-            project.description,
+            project.description!,
             style: Theme.of(context).textTheme.caption,
           ),
           onTap: () {
-            ExtendedNavigator.of(context).push(project.route);
+            AutoRouter.of(context).push(project.route!);
           },
         ),
       ),

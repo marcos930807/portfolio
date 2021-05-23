@@ -1,8 +1,8 @@
 part of 'app_cubit.dart';
 
 class AppState extends Equatable {
-  final ThemeData themeData;
-  final Locale currentLocale;
+  final ThemeData? themeData;
+  final Locale? currentLocale;
   const AppState({this.themeData, this.currentLocale});
 
   factory AppState.initial(PreferencesManager _preferencesManager) {
@@ -14,8 +14,8 @@ class AppState extends Equatable {
   }
 
   AppState copyWith({
-    final ThemeData themeData,
-    final Locale currentLocale,
+    final ThemeData? themeData,
+    final Locale? currentLocale,
   }) =>
       AppState(
         themeData: themeData ?? this.themeData,
@@ -23,5 +23,5 @@ class AppState extends Equatable {
       );
 
   @override
-  List<Object> get props => [themeData, currentLocale];
+  List<Object?> get props => [themeData, currentLocale];
 }
