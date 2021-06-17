@@ -3,7 +3,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:web_portfolio/presentation/app/app_cubit.dart';
+import 'package:web_portfolio/presentation/app/lang/l10n.dart';
 import 'package:web_portfolio/presentation/pages/about/about.dart';
+import 'package:web_portfolio/presentation/pages/home/components/localization_switch.dart';
 import 'package:web_portfolio/presentation/pages/home/cubit/bottombar_cubit.dart';
 import 'package:web_portfolio/presentation/pages/proyects/cubit/projects_cubit.dart';
 import 'package:web_portfolio/presentation/pages/proyects/projects.dart';
@@ -14,7 +17,7 @@ import 'components/theme_switch.dart';
 import 'tab_bar.dart';
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({
+  const MyHomePage({
     Key? key,
   }) : super(key: key);
 
@@ -41,7 +44,11 @@ class _MyHomePageState extends State<MyHomePage> {
             centerTitle: true,
             title: HomeTabBar(),
             actions: [
-              ThemeSwitch(),
+              LocalizationSwitch(
+                onLocaleChange: (value) => context.read<AppCubit>().updateLocale(value),
+              ),
+              const SizedBox(width: 10),
+              const ThemeSwitch(),
             ],
           ),
           floatingActionButton: FloatingActionButton.extended(
@@ -52,10 +59,10 @@ class _MyHomePageState extends State<MyHomePage> {
               label: Row(
                 children: [
                   WebsafeSvg.asset(Assets.whatApp, height: 30, width: 30),
-                  SizedBox(
+                  const SizedBox(
                     width: 5,
                   ),
-                  Text('Contact Me'),
+                  Text(S.of(context).contactMe),
                 ],
               )).moveUpOnHover,
           body: BlocBuilder<BottomBarCubit, int>(
@@ -64,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 case 0:
                   return AboutTab();
                 case 1:
-                  return Projects();
+                  return const Projects();
                 default:
                   return Container();
               }

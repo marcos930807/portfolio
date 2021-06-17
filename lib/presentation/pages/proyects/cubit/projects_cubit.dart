@@ -1,40 +1,42 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:web_portfolio/presentation/app/lang/l10n.dart';
 import 'package:web_portfolio/presentation/routes/routes.gr.dart';
-import 'project_model.dart';
 import 'package:web_portfolio/utils/assets.dart';
+
+import 'project_model.dart';
 
 part 'projects_state.dart';
 
 class ProjectsCubit extends Cubit<ProjectsState> {
-  ProjectsCubit() : super(ProjectsState([]));
+  ProjectsCubit() : super(const ProjectsState([]));
 
-  fetchProyect() {
+  void fetchProyect() {
     final projects = [
       Project(
         name: 'Awesome Dialog',
-        description: 'A Flutter package project for simple a awesome dialogs..',
+        description: S.current.awesomeDialogDesc,
         asset: Assets.github,
-        route: AwesomeDialogPageRoute(),
+        route: const AwesomeDialogPageRoute(),
       ),
       Project(
         name: 'Gosocket Inbox',
-        description: 'CrossPlatform flutter mobile App',
+        description: S.current.gosocketInboxDesc,
         asset: Assets.github,
-        route: UnderDevRoute(),
+        route: const UnderDevRoute(),
       ),
-      Project(
-        name: 'PosMitt',
-        description: 'CrossPlatform flutter mobile App',
-        asset: Assets.github,
-        route: UnderDevRoute(),
-      ),
-      Project(
-        name: 'Smart Inv',
-        description: 'CrossPlatform flutter mobile App',
-        asset: Assets.github,
-        route: UnderDevRoute(),
-      ),
+      // Project(
+      //   name: 'PosMitt',
+      //   description: 'CrossPlatform flutter mobile App',
+      //   asset: Assets.github,
+      //   route: UnderDevRoute(),
+      // ),
+      // Project(
+      //   name: 'Smart Inv',
+      //   description: 'CrossPlatform flutter mobile App',
+      //   asset: Assets.github,
+      //   route: UnderDevRoute(),
+      // ),
     ];
 
     emit(state.copyWith(projects: projects));

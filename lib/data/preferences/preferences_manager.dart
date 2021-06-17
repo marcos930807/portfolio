@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:web_portfolio/presentation/app/themes/app_themes.dart';
 
 class PreferencesManager {
-  final SharedPreferences? _sharedPreferences;
+  final SharedPreferences _sharedPreferences;
 
   PreferencesManager(this._sharedPreferences);
 
@@ -14,32 +14,33 @@ class PreferencesManager {
   static const String _showOnboarding = 'show_onboarding_key';
 
   String get currentLocale {
-    return _sharedPreferences!.getString(_localeKey) ?? '';
+    return _sharedPreferences.getString(_localeKey) ?? '';
   }
 
-  Future<bool> setLocale(String value) {
-    if (value.isEmpty) {
-      return _sharedPreferences!.remove(_localeKey);
-    } else
-      return _sharedPreferences!.setString(_localeKey, value);
+  Future<bool> setLocale(String? value) {
+    if (value == null || value.isEmpty) {
+      return _sharedPreferences.remove(_localeKey);
+    } else {
+      return _sharedPreferences.setString(_localeKey, value);
+    }
   }
 
   AppTheme get currentTheme {
     // 0 Light 1 Dark
-    var number = _sharedPreferences!.getInt(_themeKey) ?? 1;
+    final number = _sharedPreferences.getInt(_themeKey) ?? 1;
     return number == 0 ? AppTheme.Light : AppTheme.Dark;
   }
 
   Future<bool> setTheme(AppTheme value) {
     if (value == AppTheme.Light) {
-      return _sharedPreferences!.setInt(_themeKey, 0);
-    } else
-      return _sharedPreferences!.setInt(_themeKey, 1);
+      return _sharedPreferences.setInt(_themeKey, 0);
+    } else {
+      return _sharedPreferences.setInt(_themeKey, 1);
+    }
   }
 
   Future<bool> setOnboardingStatus(bool status) =>
-      _sharedPreferences!.setBool(_showOnboarding, status);
+      _sharedPreferences.setBool(_showOnboarding, status);
 
-  bool get showOnboarding =>
-      _sharedPreferences!.getBool(_showOnboarding) ?? true;
+  bool get showOnboarding => _sharedPreferences.getBool(_showOnboarding) ?? true;
 }

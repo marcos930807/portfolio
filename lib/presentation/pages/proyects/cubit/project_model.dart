@@ -8,7 +8,7 @@ class Project extends Equatable {
   final String? description;
   final String? asset;
   final PageRouteInfo? route;
-  Project({
+  const Project({
     this.name,
     this.description,
     this.asset,
@@ -30,7 +30,7 @@ class Project extends Equatable {
   }
 
   Map<String, dynamic> toMap() {
-    return {
+    return <String, dynamic>{
       'name': name,
       'description': description,
       'asset': asset,
@@ -39,19 +39,20 @@ class Project extends Equatable {
   }
 
   factory Project.fromMap(Map<String, dynamic>? map) {
-    if (map == null) return Project();
+    if (map == null) return const Project();
 
     return Project(
-      name: map['name'],
-      description: map['description'],
-      asset: map['asset'],
-      route: map['route'],
+      name: map['name'] as String,
+      description: map['description'] as String,
+      asset: map['asset'] as String?,
+      route: map['route'] as PageRouteInfo?,
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory Project.fromJson(String source) => Project.fromMap(json.decode(source));
+  factory Project.fromJson(String source) =>
+      Project.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
   bool get stringify => true;

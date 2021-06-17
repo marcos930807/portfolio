@@ -14,10 +14,10 @@ class Projects extends StatelessWidget {
       builder: (context, state) {
         return ResponsiveWidget(
           largeScreen: GridView.count(
-            padding: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 32.0),
+            padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 32.0),
             crossAxisCount: 3,
-            childAspectRatio: MediaQuery.of(context).size.width /
-                (MediaQuery.of(context).size.height / 1.8),
+            childAspectRatio:
+                MediaQuery.of(context).size.width / (MediaQuery.of(context).size.height / 3),
             children: List.generate(
                 state.projects.length,
                 (index) => ProjectTile(
@@ -26,10 +26,10 @@ class Projects extends StatelessWidget {
                     )),
           ),
           mediumScreen: GridView.count(
-            padding: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 32.0),
+            padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 32.0),
             crossAxisCount: 2,
-            childAspectRatio: MediaQuery.of(context).size.width /
-                (MediaQuery.of(context).size.height / 1.8),
+            childAspectRatio:
+                MediaQuery.of(context).size.width / (MediaQuery.of(context).size.height / 3),
             children: List.generate(
                 state.projects.length,
                 (index) => ProjectTile(

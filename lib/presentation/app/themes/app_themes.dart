@@ -10,7 +10,7 @@ enum AppTheme {
 final appThemeData = {
   AppTheme.Light: ThemeData(
     brightness: Brightness.light,
-    floatingActionButtonTheme: FloatingActionButtonThemeData(
+    floatingActionButtonTheme: const FloatingActionButtonThemeData(
       elevation: 0,
       backgroundColor: Colors.blue,
     ),
@@ -18,23 +18,23 @@ final appThemeData = {
     primarySwatch: Colors.blue,
     accentColor: AppColors.accentColor,
     scaffoldBackgroundColor: Colors.grey[50],
-    primaryIconTheme: IconThemeData(color: Colors.blue),
-    iconTheme: IconThemeData(color: Colors.black),
+    primaryIconTheme: const IconThemeData(color: Colors.blue),
+    iconTheme: const IconThemeData(color: Colors.black),
 
     //  scaffoldBackgroundColor: AppColors.scaffoldbackground,
   ),
   AppTheme.Dark: ThemeData(
     brightness: Brightness.dark,
-    floatingActionButtonTheme: FloatingActionButtonThemeData(
-        elevation: 0, backgroundColor: AppColors.primaryColor),
+    floatingActionButtonTheme:
+        const FloatingActionButtonThemeData(elevation: 0, backgroundColor: AppColors.primaryColor),
     primaryColor: Colors.blue,
     primarySwatch: Colors.blue,
-    primaryIconTheme: IconThemeData(color: Colors.white),
-    iconTheme: IconThemeData(color: Colors.white),
-    accentIconTheme: IconThemeData(color: Colors.white),
-    scaffoldBackgroundColor: Color(0xFF222636),
-    cardColor: Color(0xFF2A3042),
-    canvasColor: Color(0xFF2A3042),
-    accentColor: Color(0xFF2A3042),
+    primaryIconTheme: const IconThemeData(color: Colors.white),
+    iconTheme: const IconThemeData(color: Colors.white),
+    accentIconTheme: const IconThemeData(color: Colors.white),
+    scaffoldBackgroundColor: const Color(0xFF222636),
+    cardColor: const Color(0xFF2A3042),
+    canvasColor: const Color(0xFF2A3042),
+    accentColor: const Color(0xFF2A3042),
   ),
 };

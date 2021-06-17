@@ -109,7 +109,9 @@ class _CustomCupertinoTabBarState extends State<CustomCupertinoTabBar> {
   }
 
   Alignment _getAlignment() {
-    return Alignment(-1.0 + widget._valueGetter() / (widget._widgets.length - 1) * 2, 0.0);
+    return Alignment(
+        -1.0 + ((widget._valueGetter() / (widget._widgets.length - 1) as num) * 2.0) as double,
+        0.0);
   }
 
   @override

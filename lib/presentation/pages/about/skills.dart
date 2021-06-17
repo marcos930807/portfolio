@@ -2,17 +2,8 @@
 
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:web_portfolio/presentation/app/lang/l10n.dart';
 import 'package:web_portfolio/presentation/components/shadow_card.dart';
-
-const skills = [
-  'Dominio de la POO (programación orientada a objetos) teniendo experiencia en Java, Kotlin, Dart, JavaScript.',
-  'Dominio de la Clean Arquitecture y los principios de SOLID, usando código segmentado por capas con responsabilidades únicas.'
-      'Dominio de arquitecturas como MVVM y MVP,BLOC, así como inyección de dependencias y trabajo con abstracciones.',
-  'Utilización de software de control de versiones,ejemplo: Git utilizando gitflow.',
-  'Desarrollo móvil Nativo para Android y usando frameworks como Flutter para desarrollo multiplataforma.',
-  'CI/CD for flutter apps on both Android and Ios platform.',
-  'Unit Test',
-];
 
 class Skills extends StatefulWidget {
   const Skills({Key? key}) : super(key: key);
@@ -24,8 +15,18 @@ class Skills extends StatefulWidget {
 class _SkillsState extends State<Skills> {
   @override
   Widget build(BuildContext context) {
+    final localized = S.of(context);
+    final skills = [
+      localized.skill1,
+      localized.skill2,
+      localized.skill3,
+      localized.skill4,
+      localized.skill5,
+      localized.skill6,
+      localized.skill7
+    ];
     return ShadowCard(
-      margin: EdgeInsets.all(16),
+      margin: const EdgeInsets.all(16),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: ListView.builder(
@@ -36,8 +37,8 @@ class _SkillsState extends State<Skills> {
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
                   children: [
-                    Icon(EvaIcons.checkmarkCircle2Outline),
-                    SizedBox(
+                    const Icon(EvaIcons.checkmarkCircle2Outline),
+                    const SizedBox(
                       width: 10,
                     ),
                     Expanded(child: Text(skills[index])),

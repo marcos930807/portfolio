@@ -1,51 +1,41 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:web_portfolio/presentation/app/lang/l10n.dart';
 import 'package:web_portfolio/presentation/components/cupertino_tabbar.dart';
 
 import 'cubit/bottombar_cubit.dart';
 
 class HomeTabBar extends StatelessWidget {
-  HomeTabBar({Key? key}) : super(key: key);
+  const HomeTabBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<BottomBarCubit, int>(
       builder: (context, state) {
-        var customStyle = Theme.of(context)
+        final customStyle = Theme.of(context)
             .textTheme
             .caption!
             .copyWith(fontWeight: FontWeight.bold, color: Theme.of(context).iconTheme.color);
         return Container(
           padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 8.0),
           width: 400,
-          child: CustomCupertinoTabBar(
-            Theme.of(context).accentColor,
-            Theme.of(context).primaryColor,
-            [
-              Text(
-                'About me',
+          child: CupertinoSlidingSegmentedControl<int>(
+            thumbColor: Theme.of(context).primaryColor,
+            groupValue: state,
+            onValueChanged: (value) => context.read<BottomBarCubit>().updateIndex(value!),
+            children: <int, Widget>{
+              0: Text(
+                S.of(context).aboutMe,
                 style: customStyle,
                 textAlign: TextAlign.center,
               ),
-              Text(
-                'Projects',
+              1: Text(
+                S.of(context).projects,
                 style: customStyle,
                 textAlign: TextAlign.center,
               ),
-
-              // Text(
-              //   'Vendors',
-              //   style: customStyle,
-              //   textAlign: TextAlign.center,
-              // ),
-            ],
-            () => state,
-            (int index) {
-              context.read<BottomBarCubit>().updateIndex(index);
             },
-            useSeparators: true,
-            expand: true,
-            verticalPadding: 14,
           ),
         );
       },

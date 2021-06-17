@@ -7,9 +7,9 @@ import 'package:web_portfolio/presentation/pages/proyects/under_dev.dart';
   // transitionsBuilder: TransitionsBuilders.fadeIn,
   // durationInMilliseconds: 400,
   routes: <AutoRoute>[
-    AutoRoute(page: MyHomePage, initial: true),
-    AutoRoute(page: AwesomeDialogPage),
-    AutoRoute(page: UnderDev),
+    AutoRoute<void>(page: MyHomePage, initial: true, path: '/'),
+    AutoRoute<void>(page: AwesomeDialogPage, path: '/awesome_dialog'),
+    AutoRoute<void>(page: UnderDev, path: 'under_dev'),
   ],
 )
 class $AppRouter {}

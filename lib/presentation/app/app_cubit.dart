@@ -8,8 +8,7 @@ part 'app_state.dart';
 
 class AppCubit extends Cubit<AppState> {
   final PreferencesManager _preferencesManager;
-  AppCubit(this._preferencesManager)
-      : super(AppState.initial(_preferencesManager));
+  AppCubit(this._preferencesManager) : super(AppState.initial(_preferencesManager));
 
   void toggleTheme() {
     if (state.themeData!.brightness == Brightness.light) {
@@ -21,8 +20,8 @@ class AppCubit extends Cubit<AppState> {
     }
   }
 
-  updateLocale(String strLocale) {
-    if (strLocale.isNotEmpty) {
+  void updateLocale(String? strLocale) {
+    if (strLocale != null && strLocale.isNotEmpty) {
       emit(state.copyWith(currentLocale: Locale(strLocale, "")));
       _preferencesManager.setLocale(strLocale);
     } else {

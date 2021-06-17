@@ -1,0 +1,30 @@
+include: package:lint/analysis_options.yaml
+
+analyzer:
+  strong-mode:
+    # Will become the default to false once non-nullable types land
+    # https://github.com/dart-lang/sdk/issues/31410#issuecomment-510683629
+    implicit-casts: false
+    implicit-dynamic: false
+  errors:
+    invalid_assignment: error
+  exclude:
+    # - '**.g.dart'
+    # - "**/*.freezed.dart"
+    - 'lib/presentation/app/lang/intl/**'
+    - 'lib/presentation/routes/routes.gr.dart'
+   
+
+linter:
+  rules:
+    sort_unnamed_constructors_first: false
+    always_specify_types: false
+    constant_identifier_names: false
+    avoid_classes_with_only_static_members: false
+    unnecessary_this: false
+    avoid_positional_boolean_parameters: false
+    
+
+    
+   
+    

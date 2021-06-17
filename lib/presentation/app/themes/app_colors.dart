@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
-String hexFromDartColor(Color color) =>
-    '#${color.value.toRadixString(16).substring(2)}';
+String hexFromDartColor(Color color) => '#${color.value.toRadixString(16).substring(2)}';
 
 Color hexToColor(String code) {
-  return new Color(int.parse(code.substring(1, 7), radix: 16) + 0xFF000000);
+  return Color(int.parse(code.substring(1, 7), radix: 16) + 0xFF000000);
 }
 
 class AppColors {
@@ -24,33 +23,33 @@ class AppColors {
   static const Color shapeColor = Color(0xFF000000);
   static const Color reminderColor = Color(0xFFA1F389);
 
-  static const Color scaffoldGradientStart = Color(0XFFAEDDF5);
-  static const Color scaffoldGradientEnd = Color(0XFFF4FAFF);
-  static const Color headerDarkBlue = Color(0XFF00AAF9);
-  static const Color headerLighBlue = Color(0XFF00AAF7);
-  static const Color headerGradientStart = Color(0XFFAFDEF6);
-  static const Color headerGradientEnd = Color(0XFF00AAF7);
-  static const Color headerGradientStart2 = Color(0XFF2BB6FA);
-  static const Color headerGradientEnd2 = Color(0XFF2BB6FA);
-  static const Color headerLighBlue2 = Color(0XFFDAF0FD);
+  static const Color scaffoldGradientStart = Color(0xffaeddf5);
+  static const Color scaffoldGradientEnd = Color(0xfff4faff);
+  static const Color headerDarkBlue = Color(0xff00aaf9);
+  static const Color headerLighBlue = Color(0xff00aaf7);
+  static const Color headerGradientStart = Color(0xffafdef6);
+  static const Color headerGradientEnd = Color(0xff00aaf7);
+  static const Color headerGradientStart2 = Color(0xff2bb6fa);
+  static const Color headerGradientEnd2 = Color(0xff2bb6fa);
+  static const Color headerLighBlue2 = Color(0xffdaf0fd);
 
-  static const Color notificationColor = Color(0XFF0D1B55);
+  static const Color notificationColor = Color(0xff0d1b55);
 
-  static const Color dashboardTilesTextColor = Color(0XFF1C0E5D);
-  static const Color dashboardTilesCircleColor2 = Color(0XFF07C0D7);
-  static const Color dashboardTilesCircleColor = Color(0XFF4424A8);
-  static const Color shadowCardBorderColor = Color(0XFFF3F2F9);
-  static const Color facturarColor = Color(0XFF4424A8);
+  static const Color dashboardTilesTextColor = Color(0xff1c0e5d);
+  static const Color dashboardTilesCircleColor2 = Color(0xff07c0d7);
+  static const Color dashboardTilesCircleColor = Color(0xff4424a8);
+  static const Color shadowCardBorderColor = Color(0xfff3f2f9);
+  static const Color facturarColor = Color(0xff4424a8);
   // static const Color shapeColor = Color(0XFF66CB79);
-  static const Color textBoldColor = Color(0XFF044CAC);
-  static const Color textBoldColor2 = Color(0XFF66CB79);
-  static const Color salesBackgroundColor = Color(0XFF4A138C);
-  static const Color salesCircleColor = Color(0XFFF23790);
+  static const Color textBoldColor = Color(0xff044cac);
+  static const Color textBoldColor2 = Color(0xff66cb79);
+  static const Color salesBackgroundColor = Color(0xff4a138c);
+  static const Color salesCircleColor = Color(0xfff23790);
 
-  static const Color titleTextColor = const Color(0xff5a5d85);
-  static const Color subTitleTextColor = const Color(0xff797878);
+  static const Color titleTextColor = Color(0xff5a5d85);
+  static const Color subTitleTextColor = Color(0xff797878);
 
-  static const Color bottonTitleTextColor = const Color(0xffd4d4ea);
+  static const Color bottonTitleTextColor = Color(0xffd4d4ea);
 
   static const Color grey = Color(0xff9D99A7);
   static const Color darkgrey = Color(0xff625f6a);

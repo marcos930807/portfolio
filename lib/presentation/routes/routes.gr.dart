@@ -17,19 +17,17 @@ class AppRouter extends _i1.RootStackRouter {
 
   @override
   final Map<String, _i1.PageFactory> pagesMap = {
-    MyHomePageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+    MyHomePageRoute.name: (routeData) => _i1.MaterialPageX<void>(
         routeData: routeData,
-        builder: (data) {
-          final args = data.argsAs<MyHomePageRouteArgs>(
-              orElse: () => const MyHomePageRouteArgs());
-          return _i3.MyHomePage(key: args.key);
+        builder: (_) {
+          return const _i3.MyHomePage();
         }),
-    AwesomeDialogPageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+    AwesomeDialogPageRoute.name: (routeData) => _i1.MaterialPageX<void>(
         routeData: routeData,
         builder: (_) {
           return const _i4.AwesomeDialogPage();
         }),
-    UnderDevRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+    UnderDevRoute.name: (routeData) => _i1.MaterialPageX<void>(
         routeData: routeData,
         builder: (_) {
           return const _i5.UnderDev();
@@ -39,33 +37,25 @@ class AppRouter extends _i1.RootStackRouter {
   @override
   List<_i1.RouteConfig> get routes => [
         _i1.RouteConfig(MyHomePageRoute.name, path: '/'),
-        _i1.RouteConfig(AwesomeDialogPageRoute.name,
-            path: '/awesome-dialog-page'),
-        _i1.RouteConfig(UnderDevRoute.name, path: '/under-dev')
+        _i1.RouteConfig(AwesomeDialogPageRoute.name, path: '/awesome_dialog'),
+        _i1.RouteConfig(UnderDevRoute.name, path: 'under_dev')
       ];
 }
 
-class MyHomePageRoute extends _i1.PageRouteInfo<MyHomePageRouteArgs> {
-  MyHomePageRoute({_i2.Key? key})
-      : super(name, path: '/', args: MyHomePageRouteArgs(key: key));
+class MyHomePageRoute extends _i1.PageRouteInfo {
+  const MyHomePageRoute() : super(name, path: '/');
 
   static const String name = 'MyHomePageRoute';
 }
 
-class MyHomePageRouteArgs {
-  const MyHomePageRouteArgs({this.key});
-
-  final _i2.Key? key;
-}
-
 class AwesomeDialogPageRoute extends _i1.PageRouteInfo {
-  const AwesomeDialogPageRoute() : super(name, path: '/awesome-dialog-page');
+  const AwesomeDialogPageRoute() : super(name, path: '/awesome_dialog');
 
   static const String name = 'AwesomeDialogPageRoute';
 }
 
 class UnderDevRoute extends _i1.PageRouteInfo {
-  const UnderDevRoute() : super(name, path: '/under-dev');
+  const UnderDevRoute() : super(name, path: 'under_dev');
 
   static const String name = 'UnderDevRoute';
 }

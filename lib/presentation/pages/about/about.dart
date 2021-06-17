@@ -1,6 +1,9 @@
+import 'dart:ui';
+
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:web_portfolio/presentation/app/lang/l10n.dart';
 import 'package:web_portfolio/presentation/components/responsive_builder.dart';
 import 'package:web_portfolio/presentation/pages/about/skills.dart';
 // import 'dart:html' as html;
@@ -19,32 +22,29 @@ class AboutTab extends StatelessWidget {
           ResponsiveWidget(
             smallScreen: Column(
               children: [
-                ProfileAndSocials(),
+                const ProfileAndSocials(),
                 FadeIn(
                   delay: 5,
-                  from: SlideFrom.RIGHT,
-                  child: Skills(),
+                  child: const Skills(),
                 ),
               ],
             ),
             mediumScreen: Column(
               children: [
-                ProfileAndSocials(),
+                const ProfileAndSocials(),
                 FadeIn(
                   delay: 5,
-                  from: SlideFrom.RIGHT,
-                  child: Skills(),
+                  child: const Skills(),
                 ),
               ],
             ),
             largeScreen: Row(
               children: [
-                Expanded(child: ProfileAndSocials()),
+                const Expanded(child: ProfileAndSocials()),
                 Expanded(
                   child: FadeIn(
                     delay: 5,
-                    from: SlideFrom.RIGHT,
-                    child: Skills(),
+                    child: const Skills(),
                   ),
                 )
               ],
@@ -64,9 +64,8 @@ class ProfileAndSocials extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
         FadeIn(
@@ -76,31 +75,32 @@ class ProfileAndSocials extends StatelessWidget {
             backgroundImage: Image.asset(Assets.avatar).image,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
         FadeIn(
           from: SlideFrom.TOP,
           delay: 1,
-          child: Text(
+          child: const Text(
             'Marcos Rodriguez',
+            textAlign: TextAlign.center,
             textScaleFactor: 4,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
         FadeIn(
           from: SlideFrom.TOP,
           delay: 2,
           child: Text(
-            'Mobile Software Developer.',
+            S.of(context).softwareDev,
             style: Theme.of(context).textTheme.caption,
             textScaleFactor: 2,
             textAlign: TextAlign.center,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 40,
         ),
         FadeIn(
@@ -108,20 +108,40 @@ class ProfileAndSocials extends StatelessWidget {
           delay: 3,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              FlatButton.icon(
-                  icon: SizedBox(width: 20, height: 20, child: WebsafeSvg.asset(Assets.github)),
-                  label: Text('Github'),
-                  onPressed: () => launch(Constants.PROFILE_GITHUB)),
-              FlatButton.icon(
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextButton.icon(
+                    style: TextButton.styleFrom(
+                      padding: const EdgeInsets.all(16.0),
+                    ),
+                    icon: SizedBox(width: 20, height: 20, child: WebsafeSvg.asset(Assets.github)),
+                    label: Text(
+                      'Github',
+                      style: Theme.of(context).textTheme.subtitle2,
+                    ),
+                    onPressed: () => launch(Constants.PROFILE_GITHUB)),
+              ),
+              TextButton.icon(
+                style: TextButton.styleFrom(
+                  padding: const EdgeInsets.all(16.0),
+                ),
                 icon: SizedBox(width: 20, height: 20, child: WebsafeSvg.asset(Assets.twitter)),
-                label: Text('Twitter'),
+                label: Text(
+                  'Twitter',
+                  style: Theme.of(context).textTheme.subtitle2,
+                ),
                 onPressed: () => launch(Constants.PROFILE_TWITTER),
               ),
-              FlatButton.icon(
+              TextButton.icon(
+                style: TextButton.styleFrom(
+                  padding: const EdgeInsets.all(16.0),
+                ),
                 icon: SizedBox(width: 20, height: 20, child: WebsafeSvg.asset(Assets.linkedin)),
-                label: Text('Linkedin'),
+                label: Text(
+                  'Linkedin',
+                  style: Theme.of(context).textTheme.subtitle2,
+                ),
                 onPressed: () => launch(
                   Constants.PROFILE_LINKEDIN,
                 ),
@@ -134,53 +154,35 @@ class ProfileAndSocials extends StatelessWidget {
           from: SlideFrom.BOTTOM,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              FlatButton.icon(
+              TextButton.icon(
+                style: TextButton.styleFrom(
+                  padding: const EdgeInsets.all(16.0),
+                ),
                 icon: SizedBox(width: 20, height: 20, child: WebsafeSvg.asset(Assets.facebook)),
-                label: Text('Facebook'),
+                label: Text(
+                  'Facebook',
+                  style: Theme.of(context).textTheme.subtitle2,
+                ),
                 onPressed: () => launch(Constants.PROFILE_FACEBOOK),
               ),
-              FlatButton.icon(
+              TextButton.icon(
+                style: TextButton.styleFrom(
+                  padding: const EdgeInsets.all(16.0),
+                ),
                 icon: SizedBox(width: 20, height: 20, child: WebsafeSvg.asset(Assets.instagram)),
-                label: Text('Instagram'),
+                label: Text(
+                  'Instagram',
+                  style: Theme.of(context).textTheme.subtitle2,
+                ),
                 onPressed: () => launch(Constants.PROFILE_INSTAGRAM),
               ),
             ],
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
-
-        // Row(
-        //   mainAxisAlignment: MainAxisAlignment.center,
-        //   crossAxisAlignment: CrossAxisAlignment.center,
-        //   children: <Widget>[
-        //     FlatButton.icon(
-        //       icon: SizedBox(
-        //           width: 20,
-        //           height: 20,
-        //           child: Image.asset(Assets.instagram)),
-        //       label: Text('Instagram'),
-        //       onPressed:()=> html.window.open(Constants.PROFILE_INSTAGRAM,'adityadroid' ),
-        //     ),FlatButton.icon(
-        //       icon: SizedBox(
-        //           width: 20,
-        //           height: 20,
-        //           child: Image.asset(Assets.facebook)),
-        //       label: Text('Facebook'),
-        //       onPressed:()=> html.window.open(Constants.PROFILE_FACEBOOK,'adityadroid' ),
-        //     ),FlatButton.icon(
-        //       icon: SizedBox(
-        //           width: 20,
-        //           height: 20,
-        //           child: Image.asset(Assets.linkedin)),
-        //       label: Text('Linkedin'),
-        //       onPressed:()=> html.window.open(Constants.PROFILE_LINKEDIN,'adityadroid' ),
-        //     )
-        //   ],
-        // )
       ],
     );
   }
