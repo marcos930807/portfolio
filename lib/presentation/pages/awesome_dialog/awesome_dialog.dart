@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -9,6 +10,7 @@ import 'package:web_portfolio/utils/assets.dart';
 import 'package:web_portfolio/utils/constant.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 // import 'dart:html' as html;
+import '../../routes/routes.gr.dart';
 
 class AwesomeDialogPage extends StatelessWidget {
   const AwesomeDialogPage({Key? key}) : super(key: key);
@@ -270,6 +272,16 @@ class AwesomeDialogPage extends StatelessWidget {
         ),
         centerTitle: true,
         actions: [
+          IconButton(
+              icon: CircleAvatar(
+                radius: 20,
+                backgroundImage: Image.asset(Assets.avatar).image,
+              ),
+              tooltip: S.of(context).aboutMe,
+              onPressed: () {
+                AutoRouter.of(context).replaceAll([const MyHomePageRoute()]);
+                // html.window.open(Constants.AWESOME_DIALOG_GITHUB, 'Awesome Dialog');
+              }),
           IconButton(
               icon: WebsafeSvg.asset(Assets.github),
               tooltip: S.of(context).openGithub,
