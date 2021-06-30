@@ -619,6 +619,26 @@ class S {
       args: [],
     );
   }
+
+  /// `The largest business network in Latin America, which allows small and medium businesses to better communicate with their customers and suppliers.`
+  String get gosocketInboxAppDesc {
+    return Intl.message(
+      'The largest business network in Latin America, which allows small and medium businesses to better communicate with their customers and suppliers.',
+      name: 'gosocketInboxAppDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Welcome to By Brothers!! Our app is the best guide to our amazing Family Park.`
+  String get ByBrothersAppDesc {
+    return Intl.message(
+      'Welcome to By Brothers!! Our app is the best guide to our amazing Family Park.',
+      name: 'ByBrothersAppDesc',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

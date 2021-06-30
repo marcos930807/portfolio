@@ -1,6 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:web_portfolio/presentation/app/lang/l10n.dart';
+import 'package:web_portfolio/presentation/pages/by_brothers_app/by_brothers_app.dart';
+import 'package:web_portfolio/presentation/pages/gosocket_app/gosocket_app.dart';
 import 'package:web_portfolio/presentation/routes/routes.gr.dart';
 import 'package:web_portfolio/utils/assets.dart';
 
@@ -23,7 +25,13 @@ class ProjectsCubit extends Cubit<ProjectsState> {
         name: 'Gosocket Inbox',
         description: S.current.gosocketInboxDesc,
         asset: Assets.github,
-        route: const UnderDevRoute(),
+        route: const GosocketPageRoute(),
+      ),
+      Project(
+        name: 'By Brothers',
+        description: S.current.ByBrothersAppDesc,
+        asset: Assets.github,
+        route: const ByBrothersPageRoute(),
       ),
       // Project(
       //   name: 'PosMitt',

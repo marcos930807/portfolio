@@ -55,5 +55,7 @@
     "skill6": "CI/CD para aplicaciones móviles en ambas plataformas Android e Ios.",
     "skill7": "Test Unitarios.",
     "awesomeDialogDesc": "Un paquete de flutter para diálogos simples e increíbles ...",
-    "gosocketInboxDesc": "Aplicación móvil Flutter de Gosocket Corp."
+    "gosocketInboxDesc": "Aplicación móvil Flutter de Gosocket Corp.",
+    "gosocketInboxAppDesc": "App movil de la red empresarial más grande de Latinoamérica, la cual permite a pequeñas y medianas empresas una mejor comunicación con sus clientes y proveedores.",
+    "ByBrothersAppDesc": "¡Bienvenido a By Brothers! Nuestra aplicación es la mejor guía para nuestro increíble Family Park"
 }

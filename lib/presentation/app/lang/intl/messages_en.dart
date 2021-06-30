@@ -21,6 +21,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "ByBrothersAppDesc": MessageLookupByLibrary.simpleMessage(
+            "Welcome to By Brothers!! Our app is the best guide to our amazing Family Park."),
         "aboutMe": MessageLookupByLibrary.simpleMessage("About me"),
         "all": MessageLookupByLibrary.simpleMessage("All"),
         "awesomeDialogDesc": MessageLookupByLibrary.simpleMessage(
@@ -46,6 +48,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "emptyValidator":
             MessageLookupByLibrary.simpleMessage("A value is required"),
         "finish": MessageLookupByLibrary.simpleMessage("Finish"),
+        "gosocketInboxAppDesc": MessageLookupByLibrary.simpleMessage(
+            "The largest business network in Latin America, which allows small and medium businesses to better communicate with their customers and suppliers."),
         "gosocketInboxDesc": MessageLookupByLibrary.simpleMessage(
             "Flutter mobile app of Gosocket Corp."),
         "home": MessageLookupByLibrary.simpleMessage("Home"),

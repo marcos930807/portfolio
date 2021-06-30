@@ -291,15 +291,31 @@ class AwesomeDialogPage extends StatelessWidget {
               })
         ],
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Wrap(
-              alignment: WrapAlignment.center,
-              children: List.generate(cards.length, (index) => cards[index]),
-            )
-          ],
-        ),
+      body: Column(
+        children: [
+          Expanded(
+            child: ResponsiveWidget(
+              largeScreen: GridView.count(
+                padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 32.0),
+                crossAxisCount: 3,
+                childAspectRatio:
+                    MediaQuery.of(context).size.width / (MediaQuery.of(context).size.height / 1.6),
+                children: List.generate(cards.length, (index) => cards[index]),
+              ),
+              mediumScreen: GridView.count(
+                padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 32.0),
+                crossAxisCount: 2,
+                childAspectRatio:
+                    MediaQuery.of(context).size.width / (MediaQuery.of(context).size.height / 1.6),
+                children: List.generate(cards.length, (index) => cards[index]),
+              ),
+              smallScreen: ListView.builder(
+                  physics: const BouncingScrollPhysics(),
+                  itemCount: cards.length,
+                  itemBuilder: (context, index) => cards[index]),
+            ),
+          ),
+        ],
       ),
     );
   }
