@@ -110,7 +110,7 @@ class _Content extends StatelessWidget {
           child: Image.asset(
             Assets.googlePlayBadgeEn,
             height: 63,
-            width: 210,
+            width: 180,
             fit: BoxFit.fill,
           ),
         );
@@ -123,7 +123,7 @@ class _Content extends StatelessWidget {
           child: Image.asset(
             Assets.appStoreBadgeEn,
             height: 64,
-            width: 208,
+            width: 178,
             fit: BoxFit.fill,
           ),
         );

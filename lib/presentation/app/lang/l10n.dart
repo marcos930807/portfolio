@@ -160,6 +160,16 @@ class S {
     );
   }
 
+  /// `Download`
+  String get download {
+    return Intl.message(
+      'Download',
+      name: 'download',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Finish`
   String get finish {
     return Intl.message(

@@ -41,6 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "deleting": MessageLookupByLibrary.simpleMessage("Deleting"),
         "description": MessageLookupByLibrary.simpleMessage("Description"),
         "done": MessageLookupByLibrary.simpleMessage("Done"),
+        "download": MessageLookupByLibrary.simpleMessage("Download"),
         "edit": MessageLookupByLibrary.simpleMessage("Edit"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "emailValidator":

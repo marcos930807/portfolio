@@ -15,16 +15,18 @@ class ProjectTile extends StatelessWidget {
       delay: index.toDouble(),
       child: ShadowCard(
         margin: const EdgeInsets.all(8),
-        child: ListTile(
-          leading: WebsafeSvg.asset(project.asset!, height: 50, width: 50),
-          title: Text(project.name!),
-          subtitle: Text(
-            project.description!,
-            style: Theme.of(context).textTheme.caption,
+        child: Center(
+          child: ListTile(
+            leading: WebsafeSvg.asset(project.asset!, height: 50, width: 50),
+            title: Text(project.name!),
+            subtitle: Text(
+              project.description!,
+              style: Theme.of(context).textTheme.caption,
+            ),
+            onTap: () {
+              AutoRouter.of(context).push(project.route!);
+            },
           ),
-          onTap: () {
-            AutoRouter.of(context).push(project.route!);
-          },
         ),
       ),
     );

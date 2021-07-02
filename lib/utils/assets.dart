@@ -8,15 +8,15 @@ class Assets {
   static const instagram = 'assets/svg/034-instagram.svg';
   static const whatApp = 'assets/svg/007-whatsapp.svg';
 
-  static const g1 = 'assets/images/g1.jpg';
-  static const g2 = 'assets/images/g2.jpg';
-  static const g3 = 'assets/images/g3.jpg';
-  static const g4 = 'assets/images/g4.jpg';
-  static const g5 = 'assets/images/g5.jpg';
-  static const bb1 = 'assets/images/bb1.png';
-  static const bb2 = 'assets/images/bb2.png';
-  static const bb3 = 'assets/images/bb3.png';
-  static const bb4 = 'assets/images/bb4.png';
+  static const g1 = 'g1.jpg';
+  static const g2 = 'g2.jpg';
+  static const g3 = 'g3.jpg';
+  static const g4 = 'g4.jpg';
+  static const g5 = 'g5.jpg';
+  static const bb1 = 'bb1.png';
+  static const bb2 = 'bb2.png';
+  static const bb3 = 'bb3.png';
+  static const bb4 = 'bb4.png';
   static const googlePlayBadgeEn = 'assets/images/gp_en.png';
   static const googlePlayBadgeEs = 'assets/images/gp_es.png';
   static const appStoreBadgeEs = 'assets/images/app_es.png';

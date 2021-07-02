@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class CarouselAssets extends StatefulWidget {
-  const CarouselAssets({Key? key, required this.assetsList}) : super(key: key);
+  CarouselAssets({Key? key, required this.assetsList}) : super(key: key);
   final List<String> assetsList;
   @override
   _CarouselAssetsState createState() => _CarouselAssetsState();
@@ -19,7 +19,7 @@ class _CarouselAssetsState extends State<CarouselAssets> {
       children: [
         CarouselSlider.builder(
           itemBuilder: (context, index, realIndex) {
-            return Image.asset(
+            return Image.network(
               widget.assetsList[index],
               width: double.infinity,
               fit: BoxFit.cover,

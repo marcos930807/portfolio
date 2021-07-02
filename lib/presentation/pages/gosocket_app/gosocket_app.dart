@@ -4,12 +4,13 @@ import 'package:web_portfolio/presentation/app/lang/l10n.dart';
 import 'package:web_portfolio/presentation/components/app_template.dart';
 import 'package:web_portfolio/presentation/components/carousel_assets.dart';
 import 'package:web_portfolio/presentation/components/frame.dart';
+import 'package:web_portfolio/services/firebase_storage.dart';
 import 'package:web_portfolio/utils/assets.dart';
 
 class GosocketPage extends StatelessWidget {
   const GosocketPage({Key? key}) : super(key: key);
 
-  final gosocketImagesAssets = const [
+  static const gosocketImagesAssets = [
     Assets.g1,
     Assets.g2,
     Assets.g3,
@@ -21,7 +22,7 @@ class GosocketPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Gosocket'),
+        // title: const Text('Gosocket'),
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         textTheme: Theme.of(context).textTheme,
         elevation: 0,
@@ -58,10 +59,17 @@ class GosocketPage extends StatelessWidget {
               LinkData('https://apps.apple.com/us/app/gosocket/id1487538315#?platform=iphone',
                   LinkType.appStore),
             ]),
-        app: Frame(
-            app: CarouselAssets(
-          assetsList: gosocketImagesAssets,
-        )),
+        app: FutureBuilder<List<String>>(
+          future: FirabeStorageService.getImagesUrl(gosocketImagesAssets),
+          builder: (context, snapshot) => snapshot.hasData
+              ? Frame(
+                  app: CarouselAssets(
+                  assetsList: snapshot.data!,
+                ))
+              : const Center(
+                  child: CircularProgressIndicator(),
+                ),
+        ),
       ),
     );
   }
