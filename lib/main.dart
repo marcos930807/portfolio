@@ -3,26 +3,41 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:url_strategy/url_strategy.dart';
+import 'package:go_router/go_router.dart';
+import 'package:web_portfolio/di_container.dart';
+import 'package:web_portfolio/firebase_option.dart';
 import 'package:web_portfolio/presentation/app/app_cubit.dart';
-
-import 'di_container.dart';
 // import 'presentation/routes/routes.gr.dart' as router;
-import 'presentation/app/lang/l10n.dart';
-import 'presentation/routes/routes.gr.dart';
+import 'package:web_portfolio/presentation/app/lang/l10n.dart';
+import 'package:web_portfolio/presentation/routes/go_router.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  setPathUrlStrategy();
-  await Firebase.initializeApp();
+  // turn off the # in the URLs on the web
+  GoRouter.setUrlPathStrategy(UrlPathStrategy.path);
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.flavorConfig(),
+  );
   await initInjection();
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  late final GoRouter _appRouter;
+
+  @override
+  void initState() {
+    _appRouter = getAppRouter();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    final _appRouter = AppRouter();
     return MultiBlocProvider(
       providers: [
         BlocProvider(
@@ -31,8 +46,9 @@ class MyApp extends StatelessWidget {
       ],
       child: BlocBuilder<AppCubit, AppState>(builder: (context, appState) {
         return MaterialApp.router(
-          routeInformationParser: _appRouter.defaultRouteParser(),
-          routerDelegate: _appRouter.delegate(),
+          routeInformationParser: _appRouter.routeInformationParser,
+          routerDelegate: _appRouter.routerDelegate,
+          routeInformationProvider: _appRouter.routeInformationProvider,
           title: 'Flutter PortFolio',
           theme: appState.themeData,
           debugShowCheckedModeBanner: false,

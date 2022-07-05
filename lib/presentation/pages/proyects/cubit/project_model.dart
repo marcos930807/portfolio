@@ -1,13 +1,12 @@
 import 'dart:convert';
-
-import 'package:auto_route/auto_route.dart';
 import 'package:equatable/equatable.dart';
+import 'package:go_router/go_router.dart';
 
 class Project extends Equatable {
   final String? name;
   final String? description;
   final String? asset;
-  final PageRouteInfo? route;
+  final GoRouteData? route;
   const Project({
     this.name,
     this.description,
@@ -19,13 +18,13 @@ class Project extends Equatable {
     String? name,
     String? description,
     String? asset,
-    String? route,
+    GoRouteData? route,
   }) {
     return Project(
       name: name ?? this.name,
       description: description ?? this.description,
       asset: asset ?? this.asset,
-      route: route as PageRouteInfo<dynamic>? ?? this.route,
+      route: route ?? this.route,
     );
   }
 
@@ -45,7 +44,7 @@ class Project extends Equatable {
       name: map['name'] as String,
       description: map['description'] as String,
       asset: map['asset'] as String?,
-      route: map['route'] as PageRouteInfo?,
+      route: map['route'] as GoRouteData?,
     );
   }
 

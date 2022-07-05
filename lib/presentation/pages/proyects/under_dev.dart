@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 // import 'package:web_portfolio/presentation/routes/routes.gr.dart';
@@ -16,7 +15,7 @@ class UnderDev extends StatelessWidget {
         leading: IconButton(
             icon: Icon(EvaIcons.arrowBackOutline),
             onPressed: () {
-              context.router.pop();
+              Navigator.of(context).pop();
             }),
         title: Text(
           'This is under develpment',

@@ -71,7 +71,8 @@ class _CustomCupertinoTabBarState extends State<CustomCupertinoTabBar> {
         _maxWidth = 0;
         _maxHeight = 0;
         for (int i = 0; i < _globalKeys.length; i++) {
-          RenderBox _renderBox = _globalKeys[i].currentContext!.findRenderObject() as RenderBox;
+          RenderBox _renderBox =
+              _globalKeys[i].currentContext!.findRenderObject() as RenderBox;
           if (_renderBox.size.width > _maxWidth) {
             _maxWidth = _renderBox.size.width;
           }
@@ -100,7 +101,7 @@ class _CustomCupertinoTabBarState extends State<CustomCupertinoTabBar> {
       _globalKeys.add(GlobalKey());
     }
     _showSelf = false;
-    WidgetsBinding.instance!.addPostFrameCallback(onPostFrameCallback);
+    WidgetsBinding.instance.addPostFrameCallback(onPostFrameCallback);
   }
 
   @override
@@ -110,7 +111,9 @@ class _CustomCupertinoTabBarState extends State<CustomCupertinoTabBar> {
 
   Alignment _getAlignment() {
     return Alignment(
-        -1.0 + ((widget._valueGetter() / (widget._widgets.length - 1) as num) * 2.0) as double,
+        -1.0 +
+            ((widget._valueGetter() / (widget._widgets.length - 1) as num) *
+                2.0) as double,
         0.0);
   }
 
@@ -127,7 +130,8 @@ class _CustomCupertinoTabBarState extends State<CustomCupertinoTabBar> {
           } else {
             return Container(
               key: _globalKeys[index],
-              constraints: widget.expand ? BoxConstraints.expand(height: 1) : null,
+              constraints:
+                  widget.expand ? BoxConstraints.expand(height: 1) : null,
             );
           }
         }),
@@ -137,8 +141,10 @@ class _CustomCupertinoTabBarState extends State<CustomCupertinoTabBar> {
         height: widget.expand ? null : _maxHeight,
         width: widget.expand
             ? null
-            : (_maxWidth + widget.horizontalPadding * 2.0) * widget._widgets.length,
-        constraints: widget.expand ? BoxConstraints.expand(height: _maxHeight) : null,
+            : (_maxWidth + widget.horizontalPadding * 2.0) *
+                widget._widgets.length,
+        constraints:
+            widget.expand ? BoxConstraints.expand(height: _maxHeight) : null,
         decoration: BoxDecoration(
           color: widget._backgroundColor,
           borderRadius: widget.borderRadius,
@@ -154,11 +160,13 @@ class _CustomCupertinoTabBarState extends State<CustomCupertinoTabBar> {
                 padding: const EdgeInsets.all(2.0),
                 child: Container(
                   height: widget.expand ? null : _maxHeight,
-                  width: widget.expand ? null : _maxWidth + widget.horizontalPadding * 2.0,
+                  width: widget.expand
+                      ? null
+                      : _maxWidth + widget.horizontalPadding * 2.0,
                   constraints: widget.expand
                       ? BoxConstraints.expand(
-                          width:
-                              _maxWidth / widget._widgets.length - widget.horizontalPadding * 2.0)
+                          width: _maxWidth / widget._widgets.length -
+                              widget.horizontalPadding * 2.0)
                       : null,
                   decoration: BoxDecoration(
                     color: widget._foregroundColor,
@@ -169,7 +177,8 @@ class _CustomCupertinoTabBarState extends State<CustomCupertinoTabBar> {
             ),
             if (widget.useSeparators)
               Row(
-                children: List<Widget>.generate(widget._widgets.length * 2 - 1, (int index) {
+                children: List<Widget>.generate(widget._widgets.length * 2 - 1,
+                    (int index) {
                   if (index % 2 == 0) {
                     int _trueIndex = (index / 2.0).floor();
                     return Expanded(
@@ -201,7 +210,8 @@ class _CustomCupertinoTabBarState extends State<CustomCupertinoTabBar> {
               ),
             if (!widget.useSeparators)
               Row(
-                children: List<Widget>.generate(widget._widgets.length, (int index) {
+                children:
+                    List<Widget>.generate(widget._widgets.length, (int index) {
                   return Expanded(
                     child: InkWell(
                       child: Container(

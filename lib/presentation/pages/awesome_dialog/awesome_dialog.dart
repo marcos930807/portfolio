@@ -1,16 +1,14 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:web_portfolio/presentation/app/lang/l10n.dart';
 import 'package:web_portfolio/presentation/components/responsive_builder.dart';
 import 'package:web_portfolio/presentation/components/shadow_card.dart';
+import 'package:web_portfolio/presentation/routes/go_router.dart';
 // import 'package:web_portfolio/presentation/routes/routes.gr.dart';
 import 'package:web_portfolio/utils/assets.dart';
 import 'package:web_portfolio/utils/constant.dart';
 import 'package:websafe_svg/websafe_svg.dart';
-// import 'dart:html' as html;
-import '../../routes/routes.gr.dart';
 
 class AwesomeDialogPage extends StatelessWidget {
   const AwesomeDialogPage({Key? key}) : super(key: key);
@@ -235,7 +233,6 @@ class AwesomeDialogPage extends StatelessWidget {
                     child: TextFormField(
                       autofocus: true,
                       keyboardType: TextInputType.multiline,
-                      maxLengthEnforced: true,
                       minLines: 2,
                       maxLines: null,
                       decoration: InputDecoration(
@@ -279,7 +276,8 @@ class AwesomeDialogPage extends StatelessWidget {
               ),
               tooltip: S.of(context).aboutMe,
               onPressed: () {
-                AutoRouter.of(context).replaceAll([const MyHomePageRoute()]);
+                MyHomeRoute().go(context);
+
                 // html.window.open(Constants.AWESOME_DIALOG_GITHUB, 'Awesome Dialog');
               }),
           IconButton(
@@ -298,15 +296,15 @@ class AwesomeDialogPage extends StatelessWidget {
               largeScreen: GridView.count(
                 padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 32.0),
                 crossAxisCount: 3,
-                childAspectRatio:
-                    MediaQuery.of(context).size.width / (MediaQuery.of(context).size.height / 1.6),
+                childAspectRatio: MediaQuery.of(context).size.width /
+                    (MediaQuery.of(context).size.height / 1.6),
                 children: List.generate(cards.length, (index) => cards[index]),
               ),
               mediumScreen: GridView.count(
                 padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 32.0),
                 crossAxisCount: 2,
-                childAspectRatio:
-                    MediaQuery.of(context).size.width / (MediaQuery.of(context).size.height / 1.6),
+                childAspectRatio: MediaQuery.of(context).size.width /
+                    (MediaQuery.of(context).size.height / 1.6),
                 children: List.generate(cards.length, (index) => cards[index]),
               ),
               smallScreen: ListView.builder(
@@ -384,7 +382,8 @@ class DialogCardInfo extends StatelessWidget {
                   child: dialog.customHeader ??
                       (dialog.dialogType != DialogType.NO_HEADER
                           ? FlareHeader(
-                              dialogType: dialog.dialogType, loop: dialog.headerAnimationLoop)
+                              dialogType: dialog.dialogType,
+                              loop: dialog.headerAnimationLoop)
                           : Container()),
                 ),
                 const SizedBox(
