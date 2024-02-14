@@ -24,7 +24,7 @@ class GosocketPage extends StatelessWidget {
       appBar: AppBar(
         // title: const Text('Gosocket'),
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        textTheme: Theme.of(context).textTheme,
+        titleTextStyle: Theme.of(context).textTheme.headlineSmall,
         elevation: 0,
       ),
       body: SimpleTemplate(
@@ -56,7 +56,8 @@ class GosocketPage extends StatelessWidget {
               LinkData(
                   'https://play.google.com/store/apps/details?id=net.gosocket.gosocketmobilev2&hl=es_SV',
                   LinkType.playStore),
-              LinkData('https://apps.apple.com/us/app/gosocket/id1487538315#?platform=iphone',
+              LinkData(
+                  'https://apps.apple.com/us/app/gosocket/id1487538315#?platform=iphone',
                   LinkType.appStore),
             ]),
         app: FutureBuilder<List<String>>(

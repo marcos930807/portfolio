@@ -14,7 +14,6 @@ import 'package:web_portfolio/presentation/routes/go_router.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // turn off the # in the URLs on the web
-  GoRouter.setUrlPathStrategy(UrlPathStrategy.path);
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.flavorConfig(),
   );

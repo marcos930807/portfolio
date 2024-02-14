@@ -23,7 +23,8 @@ class ByBrothersPage extends StatelessWidget {
       appBar: AppBar(
         // title: const Text('ByBrothers'),
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        textTheme: Theme.of(context).textTheme,
+        titleTextStyle: Theme.of(context).textTheme.headlineSmall,
+
         elevation: 0,
       ),
       body: SimpleTemplate(
@@ -49,7 +50,8 @@ class ByBrothersPage extends StatelessWidget {
               LinkData(
                   'https://play.google.com/store/apps/details?id=us.bybrothers.app&hl=en_US&gl=US',
                   LinkType.playStore),
-              LinkData('https://apps.apple.com/us/app/bybrothers/id1552641094#?platform=iphone',
+              LinkData(
+                  'https://apps.apple.com/us/app/bybrothers/id1552641094#?platform=iphone',
                   LinkType.appStore),
             ]),
         app: FutureBuilder<List<String>>(

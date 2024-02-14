@@ -19,10 +19,10 @@ class AwesomeDialogPage extends StatelessWidget {
             context: context,
             width: 400,
             headerAnimationLoop: false,
-            animType: AnimType.BOTTOMSLIDE,
+            animType: AnimType.bottomSlide,
             title: 'INFO',
             desc:
-                'This is a Info dialog, with a fixed width of 400, and BOTTOMSLIDE animation, with no loop.',
+                'This is a Info dialog, with a fixed width of 400, and bottomSlide animation, with no loop.',
             btnCancelOnPress: () {},
             btnOkOnPress: () {},
           ),
@@ -31,11 +31,11 @@ class AwesomeDialogPage extends StatelessWidget {
           dialog: AwesomeDialog(
             context: context,
             width: 400,
-            dialogType: DialogType.INFO_REVERSED,
+            dialogType: DialogType.infoReverse,
             headerAnimationLoop: false,
-            title: 'INFO_REVERSED',
+            title: 'infoReverse',
             desc:
-                'This is a INFO_REVERSED dialog, with a fixed width of 400, and SCALE animation, with no loop.',
+                'This is a infoReverse dialog, with a fixed width of 400, and SCALE animation, with no loop.',
             btnCancelOnPress: () {},
             btnOkOnPress: () {},
           ),
@@ -44,8 +44,8 @@ class AwesomeDialogPage extends StatelessWidget {
           dialog: AwesomeDialog(
             context: context,
             width: 400,
-            dialogType: DialogType.QUESTION,
-            animType: AnimType.LEFTSLIDE,
+            dialogType: DialogType.question,
+            animType: AnimType.leftSlide,
             headerAnimationLoop: false,
             title: 'QUESTION',
             desc:
@@ -58,8 +58,8 @@ class AwesomeDialogPage extends StatelessWidget {
           dialog: AwesomeDialog(
             context: context,
             width: 400,
-            dialogType: DialogType.WARNING,
-            animType: AnimType.TOPSLIDE,
+            dialogType: DialogType.warning,
+            animType: AnimType.topSlide,
             title: 'WARNING',
             desc:
                 'This is a Warning dialog, with a fixed width of 400, and TOPSLIDE animation, with loop.',
@@ -71,10 +71,10 @@ class AwesomeDialogPage extends StatelessWidget {
           dialog: AwesomeDialog(
             context: context,
             width: 400,
-            dialogType: DialogType.ERROR,
+            dialogType: DialogType.error,
             headerAnimationLoop: true,
-            animType: AnimType.SCALE,
-            title: 'ERROR',
+            animType: AnimType.scale,
+            title: 'error',
             desc:
                 'This is a ERROR dialog, with a fixed width of 400, and SCALE animation, with loop.',
             btnCancelOnPress: () {},
@@ -85,10 +85,10 @@ class AwesomeDialogPage extends StatelessWidget {
           dialog: AwesomeDialog(
             context: context,
             width: 400,
-            dialogType: DialogType.SUCCES,
+            dialogType: DialogType.success,
             headerAnimationLoop: false,
-            animType: AnimType.LEFTSLIDE,
-            title: 'SUCCES',
+            animType: AnimType.leftSlide,
+            title: 'success',
             desc:
                 'This is a SUCCES dialog, with a fixed width of 400, and LEFTSLIDE animation, with no loop.',
             btnCancelOnPress: () {},
@@ -98,9 +98,9 @@ class AwesomeDialogPage extends StatelessWidget {
         DialogCardInfo(
           dialog: AwesomeDialog(
             context: context,
-            dialogType: DialogType.NO_HEADER,
+            dialogType: DialogType.noHeader,
             headerAnimationLoop: false,
-            animType: AnimType.RIGHSLIDE,
+            animType: AnimType.rightSlide,
             title: 'NO_HEADER',
             desc:
                 'This is a NO_HEADER dialog, with a Expanded width, and RIGHSLIDE animation, without buttons',
@@ -112,7 +112,7 @@ class AwesomeDialogPage extends StatelessWidget {
               customHeader: WebsafeSvg.asset(Assets.github),
               width: 600,
               headerAnimationLoop: false,
-              animType: AnimType.SCALE,
+              animType: AnimType.scale,
               title: 'CUSTOM_HEADER',
               desc:
                   'This is a CUSTOM_HEADER dialog, with a Fixed 600 width, and SCALE animation, with only OK Button',
@@ -124,10 +124,10 @@ class AwesomeDialogPage extends StatelessWidget {
               customHeader: WebsafeSvg.asset(Assets.facebook),
               headerAnimationLoop: false,
               width: 500,
-              animType: AnimType.BOTTOMSLIDE,
+              animType: AnimType.bottomSlide,
               title: 'CUSTOM_HEADER and BUTTONS',
               desc:
-                  'This is a CUSTOM_HEADER and BUTTONS dialog, with a fixed 500 width, and BOTTOMSLIDE animation',
+                  'This is a CUSTOM_HEADER and BUTTONS dialog, with a fixed 500 width, and bottomSlide animation',
               btnOk: ElevatedButton(
                   onPressed: () {
                     Navigator.of(context).pop();
@@ -142,10 +142,10 @@ class AwesomeDialogPage extends StatelessWidget {
         DialogCardInfo(
           dialog: AwesomeDialog(
               context: context,
-              dialogType: DialogType.INFO,
+              dialogType: DialogType.info,
               width: 500,
               headerAnimationLoop: false,
-              animType: AnimType.SCALE,
+              animType: AnimType.scale,
               body: Center(
                 child: Column(
                   children: [
@@ -166,10 +166,10 @@ class AwesomeDialogPage extends StatelessWidget {
           dialog: AwesomeDialog(
             context: context,
             width: 400,
-            dialogType: DialogType.SUCCES,
+            dialogType: DialogType.success,
             autoHide: const Duration(seconds: 3),
             headerAnimationLoop: false,
-            animType: AnimType.LEFTSLIDE,
+            animType: AnimType.leftSlide,
             title: 'SUCCES with AUTOHIDE',
             desc:
                 'This is a SUCCES dialog, with a fixed width of 400, and LEFTSLIDE animation, with no loop. and AUNTOHIDE after 3 seconds',
@@ -182,8 +182,8 @@ class AwesomeDialogPage extends StatelessWidget {
           context: context,
           keyboardAware: true,
           dismissOnBackKeyPress: false,
-          dialogType: DialogType.WARNING,
-          animType: AnimType.BOTTOMSLIDE,
+          dialogType: DialogType.warning,
+          animType: AnimType.bottomSlide,
           btnCancelText: "Cancel Order",
           btnOkText: "Yes, I will pay",
           title: 'Continue to pay?',
@@ -197,8 +197,8 @@ class AwesomeDialogPage extends StatelessWidget {
           primaryDesc: Text('Form Input with keyboard aware'),
           dialog: AwesomeDialog(
             context: context,
-            animType: AnimType.SCALE,
-            dialogType: DialogType.INFO,
+            animType: AnimType.scale,
+            dialogType: DialogType.info,
             keyboardAware: true,
             body: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -340,7 +340,7 @@ class DialogCardInfo extends StatelessWidget {
               desc: dialog.desc,
               title: dialog.title,
               body: dialog.body,
-              aligment: dialog.aligment,
+              alignment: dialog.alignment,
               animType: dialog.animType,
               autoHide: dialog.autoHide,
               borderSide: dialog.borderSide,
@@ -364,7 +364,7 @@ class DialogCardInfo extends StatelessWidget {
               headerAnimationLoop: dialog.headerAnimationLoop,
               isDense: dialog.isDense,
               keyboardAware: dialog.keyboardAware,
-              onDissmissCallback: dialog.onDissmissCallback,
+              onDismissCallback: dialog.onDismissCallback,
               padding: dialog.padding,
               showCloseIcon: dialog.showCloseIcon,
               useRootNavigator: dialog.useRootNavigator,
@@ -380,8 +380,8 @@ class DialogCardInfo extends StatelessWidget {
                   height: 80,
                   width: 80,
                   child: dialog.customHeader ??
-                      (dialog.dialogType != DialogType.NO_HEADER
-                          ? FlareHeader(
+                      (dialog.dialogType != DialogType.noHeader
+                          ? AwesomeDialogHeader(
                               dialogType: dialog.dialogType,
                               loop: dialog.headerAnimationLoop)
                           : Container()),

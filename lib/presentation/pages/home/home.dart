@@ -12,6 +12,7 @@ import 'package:web_portfolio/presentation/pages/proyects/cubit/projects_cubit.d
 import 'package:web_portfolio/presentation/pages/proyects/projects.dart';
 import 'package:web_portfolio/utils/assets.dart';
 import 'package:websafe_svg/websafe_svg.dart';
+
 import '../../../utils/extensions.dart';
 import 'components/theme_switch.dart';
 import 'tab_bar.dart';
@@ -45,7 +46,8 @@ class _MyHomePageState extends State<MyHomePage> {
             title: HomeTabBar(),
             actions: [
               LocalizationSwitch(
-                onLocaleChange: (value) => context.read<AppCubit>().updateLocale(value),
+                onLocaleChange: (value) =>
+                    context.read<AppCubit>().updateLocale(value),
               ),
               const SizedBox(width: 10),
               const ThemeSwitch(),
@@ -54,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
           floatingActionButton: FloatingActionButton.extended(
               backgroundColor: Theme.of(context).cardColor,
               onPressed: () async {
-                await launch("https://wa.me/+5358142412?text=Hello");
+                await launch("https://wa.me/+17867547775?text=Hello");
               },
               label: Row(
                 children: [

@@ -10,32 +10,25 @@ import '../pages/by_brothers_app/by_brothers_app.dart';
 
 part 'go_router.g.dart';
 
+final GlobalKey<NavigatorState> _rootNavigatorKey =
+    GlobalKey<NavigatorState>(debugLabel: 'root');
+final GlobalKey<NavigatorState> _shellNavigatorKey =
+    GlobalKey<NavigatorState>(debugLabel: 'shell');
+
 GoRouter getAppRouter() => GoRouter(
       // log diagnostic info for your routes
       debugLogDiagnostics: kDebugMode,
       initialLocation: const MyHomeRoute().location,
-      routes: <GoRoute>[
+      routes: <RouteBase>[
         ...$appRoutes,
       ],
       // use the navigatorBuilder to keep the SharedScaffold from being animated
       // as new pages as shown; wrapping that in single-page Navigator at the
       // root provides an Overlay needed for the adaptive navigation scaffold and
       // a root Navigator to show the About box
-      navigatorBuilder:
-          (BuildContext context, GoRouterState state, Widget child) =>
-              Navigator(
-        onPopPage: (Route<dynamic> route, dynamic result) {
-          route.didPop(result);
-          return false; // don't pop the single page on the root navigator
-        },
-        pages: <Page<dynamic>>[
-          //Check if is inside Login route
 
-          MaterialPage<void>(child: child),
-        ],
-      ),
       // Redirect to the login page if the user is not logged in
-      redirect: (state) {
+      redirect: (BuildContext context, GoRouterState state) {
         // No need to redirect at all
         return null;
       },
@@ -49,7 +42,7 @@ GoRouter getAppRouter() => GoRouter(
 class MyHomeRoute extends GoRouteData {
   const MyHomeRoute();
   @override
-  Widget build(BuildContext context) => const MyHomePage();
+  Widget build(BuildContext context, GoRouterState state) => const MyHomePage();
 }
 
 ///Route for [AwesomeDialogPage] page
@@ -59,7 +52,8 @@ class MyHomeRoute extends GoRouteData {
 class AwesomeDialogRoute extends GoRouteData {
   const AwesomeDialogRoute();
   @override
-  Widget build(BuildContext context) => const AwesomeDialogPage();
+  Widget build(BuildContext context, GoRouterState state) =>
+      const AwesomeDialogPage();
 }
 
 ///Route for [GosocketPage] page
@@ -69,7 +63,8 @@ class AwesomeDialogRoute extends GoRouteData {
 class GosocketRoute extends GoRouteData {
   const GosocketRoute();
   @override
-  Widget build(BuildContext context) => const GosocketPage();
+  Widget build(BuildContext context, GoRouterState state) =>
+      const GosocketPage();
 }
 
 ///Route for [ByBrothersPage] page
@@ -79,7 +74,8 @@ class GosocketRoute extends GoRouteData {
 class ByBrothersRoute extends GoRouteData {
   const ByBrothersRoute();
   @override
-  Widget build(BuildContext context) => const ByBrothersPage();
+  Widget build(BuildContext context, GoRouterState state) =>
+      const ByBrothersPage();
 }
 
 ///Route for [UnderDev] page
@@ -89,5 +85,5 @@ class ByBrothersRoute extends GoRouteData {
 class UnderDevRoute extends GoRouteData {
   const UnderDevRoute();
   @override
-  Widget build(BuildContext context) => const UnderDev();
+  Widget build(BuildContext context, GoRouterState state) => const UnderDev();
 }
